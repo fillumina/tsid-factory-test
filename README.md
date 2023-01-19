@@ -4,6 +4,8 @@ This application performs a test about various [TSID](https://github.com/f4b6a3/
 
 The tests consist in the generation of TSIDs by the given factory concurrently and analyzing how many duplicated values were generated and the generation rate.
 
+See this article about ["How to not use TSID factories"](https://fillumina.wordpress.com/2023/01/19/how-to-not-use-tsid-factories/).
+
 This is the result from one test execution on a host with a 4-core, 8-threads CPU:
 
 ```
@@ -42,7 +44,3 @@ Test 7: Shares the same thread local random TSID factory for each thread
  duplicates: 0, op/ms: 5652.0, sequential: true
  slow because of contention accessing the TSID generator
 ```
-
- 
-
-
