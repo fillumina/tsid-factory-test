@@ -17,25 +17,25 @@ public class TsidCollisionTestApp {
                 .repetitions(5)
                 .build();
 
-        tp.printTest("Creates a new default TSID factory on each thread",
+        tp.printTest("Create a new default TSID factory on each thread",
                 "duplication present because of not enough random bits available",
                 "i -> TsidFactory.newInstance1024()",
                 i -> TsidFactory.newInstance1024());
 
         TsidFactory sharedInstance1024 = TsidFactory.newInstance1024();
-        tp.printTest("Shares the same default TSID factory on each thread",
+        tp.printTest("Share the same default TSID factory on each thread",
                 "slow because of contention accessing the TSID generator",
                 "i -> sharedInstance1024",
                 i -> sharedInstance1024);
 
-        tp.printTest("Creates a new node TSID factory on each thread with the same node-id",
+        tp.printTest("Create a new node TSID factory on each thread with the same node-id",
                 "duplications because generators use the same node-id",
                 "i -> TsidFactory.newInstance1024(0)",
                 i -> TsidFactory.newInstance1024(0));
 
         // THIS IS THE RIGHT STRATEGY FOR SEQUENTIAL TSID ON THE SAME NODE!
         TsidFactory sharedInsstance1024Node0 = TsidFactory.newInstance1024(0);
-        tp.printTest("Shares the same node TSID factory on each thread",
+        tp.printTest("Share the same node TSID factory on each thread",
                 "slow because of contention accessing the TSID generator",
                 "i -> sharedInsstance1024Node0",
                 i -> sharedInsstance1024Node0);
@@ -51,7 +51,7 @@ public class TsidCollisionTestApp {
                 i -> factoryCreator());
 
         TsidFactory sharedFactory = factoryCreator();
-        tp.printTest("Shares the same thread local random TSID factory on each thread",
+        tp.printTest("Share the same thread local random TSID factory on each thread",
                 "slow because of contention accessing the TSID generator",
                 "i -> sharedFactory",
                 i -> sharedFactory);
