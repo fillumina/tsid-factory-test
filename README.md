@@ -4,7 +4,7 @@ This application performs a test about various [TSID](https://github.com/f4b6a3/
 
 The tests consist in the generation of TSIDs by the given factory concurrently and analyzing how many duplicated values were generated and the generation rate.
 
-See this article about ["How to not use TSID factories"](https://fillumina.wordpress.com/2023/01/19/how-to-not-use-tsid-factories/).
+See the blog article about ["How to not use TSID factories"](https://fillumina.wordpress.com/2023/01/19/how-to-not-use-tsid-factories/).
 
 This is the result from one test execution on a host with a 4-core, 8-threads CPU:
 
