@@ -22,7 +22,7 @@ public class TestPerformer {
     public static class Builder {
         private int threadCount = 1;
         private int iterationCount = 10_000;
-        private int repetitions = 1;
+        private int repetitions = 100;
 
         private Builder() {
         }

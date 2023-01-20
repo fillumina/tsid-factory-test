@@ -13,8 +13,8 @@ public class TsidCollisionTestApp {
 
         TestPerformer tp = TestPerformer.builder()
                 .threadCount(32)
-                .iterationCount(100_000)
-                .repetitions(5)
+                .iterationCount(1_000)
+                .repetitions(1_000)
                 .build();
 
         tp.printTest("Create a new default TSID factory on each thread",
@@ -59,8 +59,6 @@ public class TsidCollisionTestApp {
 
     private static TsidFactory factoryCreator() {
         return TsidFactory.builder()
-                // generates the value of the node part.
-                // being random the resulted TSID will NOT BE SEQUENTIAL!
                 .withRandomFunction(length -> {
                     final byte[] bytes = new byte[length];
                     ThreadLocalRandom.current().nextBytes(bytes);
